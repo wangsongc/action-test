@@ -24,6 +24,7 @@ jobs:
     # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
         msystem: MINGW64
     - run: |
+        ls C:\Program Files\OpenSSL
         if (( "${{ matrix.EVENT_MATRIX }}" -eq "" ) -and ( "${{ matrix.EVENT_BUILD_METHOD }}" -eq "cmake" )) {
           $EVENT_CMAKE_OPTIONS=""
         } else {
