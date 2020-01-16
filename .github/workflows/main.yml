@@ -24,21 +24,18 @@ jobs:
     # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
         msystem: MINGW64
     - run: |
+        msys2do pacman -S --noconfirm mingw-w64-x86_64-gcc mingw-w64-x86_64-freetype mingw-w64-x86_64-pkg-config make
+        $script='
+        [[ $? -ne 0 ]] && exit 1
+        mkdir build-autotools 2>/dev/null
+        cd build-autotools
+        [[ $? -ne 0 ]] && exit 1
         pwd
-    - name: build
-      shell: bash
-      run: |
-        MPATH="/d/a/_temp/msys/msys64/usr/bin"
-        PATH="${MPATH}:${PATH}"
-        echo ${PATH}
-    - name: test
-      shell: bash
-      run: |
-        pacman -S --noconfirm mingw-w64-x86_64-gcc
+        [[ $? -ne 0 ]] && exit 1
         pwd
-        mkdir build-autotools 
-        cd build-autotools 
-        pwd
+        [[ $? -ne 0 ]] && exit 1
+        msys2do -c $script
+
         
 
 
