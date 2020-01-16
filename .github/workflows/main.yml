@@ -17,5 +17,6 @@ jobs:
       shell: cmd
       run: |
         set PATH="C:\Program Files\Java\zulu-11-azure-jdk_11.33.15-11.0.4-win_x64\bin;%PATH%"
+        PATH
         java -version
         set JAVA_HOME      
