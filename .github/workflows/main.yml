@@ -24,7 +24,7 @@ jobs:
     # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
         msystem: MINGW64
     - run: |
-        msys2do pacman -S --noconfirm mingw-w64-x86_64-gcc mingw-w64-x86_64-freetype mingw-w64-x86_64-pkg-config make
+        msys2do pacman -S --noconfirm mingw-w64-x86_64-gcc mingw-w64-x86_64-freetype mingw-w64-x86_64-pkg-config make autoconf automake msys/libtool
         $script=@'
         [[ $? -ne 0 ]] && exit 1
         mkdir build-autotools 2>/dev/null
