@@ -1,11 +1,11 @@
-name: autotools on windows
+name: msys test
 
 on:
   pull_request:
     types: [opened, synchronize]
   push:
     branches:
-    - master
+    - master-ok
     tags:
     - '*'
 
