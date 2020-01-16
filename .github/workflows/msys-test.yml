@@ -31,16 +31,16 @@ jobs:
         }
 
         if ( "${{ matrix.EVENT_BUILD_METHOD }}" -eq "autotools" ) {
-        $script=@'
-        [[ $? -ne 0 ]] && exit 1
-        mkdir build-autotools 2>/dev/null
-        cd build-autotools
-        [[ $? -ne 0 ]] && exit 1
-        pwd
-        [[ $? -ne 0 ]] && exit 1
-        pwd
-        '@
-        D:\a\_temp\msys\\msys64\usr\bin\bash.exe -c -l $script
+          $script='
+          [[ $? -ne 0 ]] && exit 1
+          mkdir build-autotools 2>/dev/null
+          cd build-autotools
+          [[ $? -ne 0 ]] && exit 1
+          pwd
+          [[ $? -ne 0 ]] && exit 1
+          pwd
+          '
+          D:\a\_temp\msys\\msys64\usr\bin\bash.exe -c -l $script
         }
 
         
