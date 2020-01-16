@@ -24,6 +24,12 @@ jobs:
     # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
         msystem: MINGW64
     - run: |
+        if (( "${{ matrix.EVENT_MATRIX }}" -eq "" ) -and ( ${{ matrix.EVENT_BUILD_METHOD }} -eq cmake )) {
+          $EVENT_CMAKE_OPTIONS=""
+        } else {
+          $EVENT_CONFIGURE_OPTIONS=""
+        }
+
         $env:EVENT_BUILD_METHOD='autotools'
         if ($env:EVENT_BUILD_METHOD -eq 'autotools') {
         $script=@'
