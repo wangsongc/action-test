@@ -35,7 +35,7 @@ jobs:
         pwd
         [[ $? -ne 0 ]] && exit 1
         '@
-        msys2do -c -l $script
+        msys2do $script
 
         
 
