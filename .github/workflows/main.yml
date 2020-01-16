@@ -35,7 +35,7 @@ jobs:
         pwd
         [[ $? -ne 0 ]] && exit 1
         '@
-        "D:\a\_temp\msys\\msys64\usr\bin\bash.exe" -ilc $script
+        D:\a\_temp\msys\\msys64\usr\bin\bash.exe -c -l $script
 
         
 
