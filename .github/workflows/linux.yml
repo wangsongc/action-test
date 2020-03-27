@@ -1,5 +1,4 @@
 name: ubuntu test
-
 on:
   pull_request:
     branches: [ master]
