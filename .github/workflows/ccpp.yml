@@ -19,12 +19,15 @@ jobs:
         cd vcpkg
     - name: bootstrap-vcpkg.sh
       run: |
+        cd vcpkg
         ./bootstrap-vcpkg.sh
     - name: vcpkg integrate install
       run: |
+        cd vcpkg
         ./vcpkg integrate install
     - name: vcpkg install libevent
       run: |
+        cd vcpkg
         ./vcpkg install libevent
         
     - name: install bootymapper
