@@ -7,8 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  build-ubuntu:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,4 +34,33 @@ jobs:
         git clone https://github.com/shishohf/bootymapper.git
         cd bootymapper
         make
+        
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: git clone vcpkg
+      run: |
+        git clone https://github.com/Microsoft/vcpkg.git  
+        cd vcpkg
+    - name: bootstrap-vcpkg.bat
+      run: |
+        cd vcpkg
+        ./bootstrap-vcpkg.bat
+    - name: vcpkg integrate install
+      run: |
+        cd vcpkg
+        ./vcpkg integrate install
+    - name: vcpkg install libevent
+      run: |
+        cd vcpkg
+        ./vcpkg install libevent
+        
+    - name: install bootymapper
+      run: |
+        git clone https://github.com/shishohf/bootymapper.git
+        cd bootymapper
+        make
+        
         
