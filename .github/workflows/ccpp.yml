@@ -17,13 +17,13 @@ jobs:
       run: |
         git clone https://github.com/Microsoft/vcpkg.git  
         cd vcpkg
-    - name: ./bootstrap-vcpkg.sh
+    - name: bootstrap-vcpkg.sh
       run: |
         ./bootstrap-vcpkg.sh
-    - name: ./vcpkg integrate install
+    - name: vcpkg integrate install
       run: |
         ./vcpkg integrate install
-    - name: ./vcpkg install libevent
+    - name: vcpkg install libevent
       run: |
         ./vcpkg install libevent
         
