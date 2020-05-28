@@ -1,0 +1,55 @@
+---
+name: windows
+
+on:
+  pull_request:
+  push:
+jobs:
+  vs:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2019]
+        EVENT_MATRIX: [NONE]
+        vcpkg_path: ["C:\\vcpkg\\installed\\x64-windows"]
+        include:
+         - os: windows-2016
+           EVENT_MATRIX: NONE
+           vcpkg_path: "C:\\vcpkg\\installed\\x64-windows"
+
+    steps:
+      - uses: actions/checkout@v2.0.0
+
+      - name: Cache Build
+        uses: actions/cache@v2
+        with:
+          path: build
+          key: ${{ matrix.os }}-${{ matrix.EVENT_MATRIX }}
+
+      - name: Cache Depends
+        id: cache-depends
+        uses: actions/cache@v2
+        with:
+          path: C:\vcpkg\installed\x64-windows
+          key: ${{ matrix.os }}-vcpkg
+
+
+      - name: Install Depends
+        if: steps.cache-depends.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |       
+          vcpkg install zlib:x64-windows
+#$env:VCPKG_INSTALLATION_ROOT\\installed   
+#${{ matrix.vcpkg_path }}      
+# vcpkg install openssl:x64-windows
+      - name: Build And Test
+        shell: powershell
+        run: |
+          mkdir build
+          cp README.md ./build
+          echo "build"
+          ls build
+          echo "vcpkg"
+          ls C:\vcpkg\installed\x64-windows
+          
