@@ -46,8 +46,10 @@ jobs:
       - name: Build And Test
         shell: powershell
         run: |
-          mkdir build
-          cp README.md ./build
+          if (-not (Test-Path -Path "./build")){
+             mkdir build
+             cp README.md ./build
+           }
           echo "build"
           ls build
           echo "vcpkg"
