@@ -12,20 +12,17 @@ jobs:
       matrix:
         os: [windows-2019]
         EVENT_MATRIX: [NONE]
-        vcpkg_path: ["C:\\vcpkg\\installed\\x64-windows"]
         include:
          - os: windows-2016
            EVENT_MATRIX: NONE
-           vcpkg_path: "C:\\vcpkg\\installed\\x64-windows"
-
     steps:
       - uses: actions/checkout@v2.0.0
 
       - name: Cache Build
         uses: actions/cache@v2
         with:
-          path: build
-          key: ${{ matrix.os }}-${{ matrix.EVENT_MATRIX }}
+          path: D:\a\action-test\action-test\build
+          key: ${{ matrix.os }}-${{ matrix.EVENT_MATRIX }}-v1
 
       - name: Cache Depends
         id: cache-depends
