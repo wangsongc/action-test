@@ -10,7 +10,7 @@ on:
     - '*'
 
 jobs:
-  windows2016:
+  windows2019:
     runs-on: windows-latest
     strategy:
       matrix:
@@ -19,30 +19,32 @@ jobs:
 
     steps:      
     - uses: actions/checkout@v1
-    - uses: numworks/setup-msys2@v1
-      with: 
-    # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
-        msystem: MINGW64
-    - run: |
-        ls "C:\Program Files\OpenSSL"
-        if (( "${{ matrix.EVENT_MATRIX }}" -eq "" ) -and ( "${{ matrix.EVENT_BUILD_METHOD }}" -eq "cmake" )) {
-          $EVENT_CMAKE_OPTIONS=""
-        } else {
-          $EVENT_CONFIGURE_OPTIONS=""
-        }
+    - name: use vcpkg
+      run: vcpkg install zlib:x64-windows
+#     - uses: numworks/setup-msys2@v1
+#       with: 
+#     # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
+#         msystem: MINGW64
+#     - run: |
+#         ls "C:\Program Files\OpenSSL"
+#         if (( "${{ matrix.EVENT_MATRIX }}" -eq "" ) -and ( "${{ matrix.EVENT_BUILD_METHOD }}" -eq "cmake" )) {
+#           $EVENT_CMAKE_OPTIONS=""
+#         } else {
+#           $EVENT_CONFIGURE_OPTIONS=""
+#         }
 
-        if ( "${{ matrix.EVENT_BUILD_METHOD }}" -eq "autotools" ) {
-          $script='
-          [[ $? -ne 0 ]] && exit 1
-          mkdir build-autotools 2>/dev/null
-          cd build-autotools
-          [[ $? -ne 0 ]] && exit 1
-          pwd
-          [[ $? -ne 0 ]] && exit 1
-          pwd
-          '
-          D:\a\_temp\msys\\msys64\usr\bin\bash.exe -c -l $script
-        }
+#         if ( "${{ matrix.EVENT_BUILD_METHOD }}" -eq "autotools" ) {
+#           $script='
+#           [[ $? -ne 0 ]] && exit 1
+#           mkdir build-autotools 2>/dev/null
+#           cd build-autotools
+#           [[ $? -ne 0 ]] && exit 1
+#           pwd
+#           [[ $? -ne 0 ]] && exit 1
+#           pwd
+#           '
+#           D:\a\_temp\msys\\msys64\usr\bin\bash.exe -c -l $script
+#         }
 
         
 
