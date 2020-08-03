@@ -19,8 +19,18 @@ jobs:
 
     steps:      
     - uses: actions/checkout@v1
-    - name: use vcpkg
-      run: vcpkg install zlib:x64-windows
+#     - name: use vcpkg
+#       run: vcpkg install zlib:x64-windows
+    - name: Setup MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
+        # Default value for MSYS2_PATH_TYPE environment variable: strict, inherit or minimal
+        # Retrieve and extract base installation from upstream GitHub Releases
+        # Update MSYS2 installation through pacman
+        update: true
+        # Install packages after installation through pacman
+        install: mingw-w64-x86_64-gcc mingw-w64-x86_64-openssl mingw-w64-x86_64-mbedtls
 #     - uses: numworks/setup-msys2@v1
 #       with: 
 #     # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
