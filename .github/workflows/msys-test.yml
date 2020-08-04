@@ -25,7 +25,9 @@ jobs:
       shell: powershell
       run: |
         echo $env:PATH
-        echo "${{jobs.windows2019.container.image}}"
+        echo "${{runner.os}}"
+        echo "${{github.run_id}}"
+        echo "${{runner.version}}"
       
     
     - name: Setup MSYS2
