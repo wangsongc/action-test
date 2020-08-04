@@ -21,16 +21,26 @@ jobs:
     - uses: actions/checkout@v1
 #     - name: use vcpkg
 #       run: vcpkg install zlib:x64-windows
+    - name: Cache
+      uses: actions/cache@v2.1.0
+      with:
+        # A list of files, directories, and wildcard patterns to cache and restore
+        path: 
+        # An explicit key for restoring and saving the cache
+        key: mingw-cmake-${{ matrix.EVENT_BUILD_METHOD }}-$env:imageVersion
     - name: version
       shell: powershell
       run: |
         echo $env:PATH
         echo "runner.os:${{runner.os}}"
         echo "github.run_id:${{github.run_id}}"
+        echo "******0*******"
         echo  $ImageVersion
+        echo "******1*******"
         echo  $imageVersion
-        echo "*************"
+        echo "******2*******"
         echo  $env:ImageVersion
+        echo "******3*******"
         echo  $env:imageVersion
       
     
