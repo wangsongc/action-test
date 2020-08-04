@@ -31,9 +31,9 @@ jobs:
           path: C:\vcpkg\installed\x64-windows
           key: ${{ matrix.os }}-vcpkg
 
-      - name: Get specific version CMake
-        uses: lukka/get-cmake@v3.17.3
-      - run: echo $env:PATH   
+#       - name: Get specific version CMake
+#         uses: lukka/get-cmake@v3.17.3
+       
 
       - name: Prepare vcpkg
         uses: lukka/run-vcpkg@v2
@@ -44,7 +44,7 @@ jobs:
           vcpkgGitCommitId: 8e76503a769e153dad8f4e7b2c95a152bb35edaa
           vcpkgTriplet: x64-windows
 
-
+      - run: echo $env:PATH  
 #       - name: Install Depends
 #         if: steps.cache-depends.outputs.cache-hit != 'true'
 #         shell: powershell
