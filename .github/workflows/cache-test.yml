@@ -32,7 +32,7 @@ jobs:
           key: ${{ matrix.os }}-vcpkg
 
       - name: Get specific version CMake
-        uses: lukka/get-cmake@v3.18.0
+        uses: lukka/get-cmake@v3.17.3
 
       - name: Install Depends
         if: steps.cache-depends.outputs.cache-hit != 'true'
