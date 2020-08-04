@@ -22,9 +22,10 @@ jobs:
 #     - name: use vcpkg
 #       run: vcpkg install zlib:x64-windows
     - name: version
+      shell: powershell
       run: |
-        - echo $env:PATH
-        - echo ${{job.windows2019.container.image}}
+        echo $env:PATH
+        echo ${{job.windows2019.container.image}}
       
     
     - name: Setup MSYS2
