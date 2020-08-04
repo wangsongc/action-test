@@ -14,7 +14,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        EVENT_BUILD_METHOD: [autotools]
+        EVENT_BUILD_METHOD: [autotools, cmake]
         EVENT_MATRIX: [""]    
 
     steps:      
@@ -25,9 +25,10 @@ jobs:
       shell: powershell
       run: |
         echo $env:PATH
-        echo "${{runner.os}}"
-        echo "${{github.run_id}}"
-        echo "${{runner.version}}"
+        echo "runner.os:${{runner.os}}"
+        echo "github.run_id:${{github.run_id}}"
+        echo "runner.version:${{runner.version}}"
+        echo "runner.os.version:${{runner.os.version}}"
       
     
     - name: Setup MSYS2
