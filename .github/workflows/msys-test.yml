@@ -27,8 +27,11 @@ jobs:
         echo $env:PATH
         echo "runner.os:${{runner.os}}"
         echo "github.run_id:${{github.run_id}}"
-        echo "runner.ImageVersion:${{ImageVersion}}"
-        echo "runner.image_version:${{image_version}}"
+        echo  $ImageVersion
+        echo  $imageVersion
+        echo "*************"
+        echo  $env:ImageVersion
+        echo  $env:imageVersion
       
     
 #     - name: Setup MSYS2
