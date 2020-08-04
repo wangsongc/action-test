@@ -25,7 +25,7 @@ jobs:
       uses: actions/cache@v2.1.0
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
-        path: 
+        path: .github
         # An explicit key for restoring and saving the cache
         key: mingw-cmake-${{ matrix.EVENT_BUILD_METHOD }}-$env:imageVersion
     - name: version
