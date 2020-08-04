@@ -32,15 +32,15 @@ jobs:
           key: ${{ matrix.os }}-vcpkg
           restore-keys: ${{ matrix.os }}-vcpkg
 
+      - name: Get specific version CMake
+        uses: lukka/get-cmake@v3.17.2
 
       - name: Install Depends
         if: steps.cache-depends.outputs.cache-hit != 'true'
         shell: powershell
         run: |       
           vcpkg install zlib:x64-windows
-#$env:VCPKG_INSTALLATION_ROOT\\installed   
-#${{ matrix.vcpkg_path }}      
-# vcpkg install openssl:x64-windows
+
       - name: Build And Test
         shell: powershell
         run: |
