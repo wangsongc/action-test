@@ -21,6 +21,12 @@ jobs:
     - uses: actions/checkout@v1
 #     - name: use vcpkg
 #       run: vcpkg install zlib:x64-windows
+    - name: version
+      run: |
+        - echo $PATH
+        - echo ${{job.windows2019.container.image}}
+      
+    
     - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
       with:
