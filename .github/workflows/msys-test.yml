@@ -27,20 +27,20 @@ jobs:
         echo $env:PATH
         echo "runner.os:${{runner.os}}"
         echo "github.run_id:${{github.run_id}}"
-        echo "runner.version:${{runner.version}}"
-        echo "runner.os.version:${{runner.os.version}}"
+        echo "runner.ImageVersion:${{ImageVersion}}"
+        echo "runner.image_version:${{image_version}}"
       
     
-    - name: Setup MSYS2
-      uses: msys2/setup-msys2@v2
-      with:
-        # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
-        # Default value for MSYS2_PATH_TYPE environment variable: strict, inherit or minimal
-        # Retrieve and extract base installation from upstream GitHub Releases
-        # Update MSYS2 installation through pacman
-        update: true
-        # Install packages after installation through pacman
-        install: mingw-w64-x86_64-gcc mingw-w64-x86_64-openssl mingw-w64-x86_64-mbedtls
+#     - name: Setup MSYS2
+#       uses: msys2/setup-msys2@v2
+#       with:
+#         # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
+#         # Default value for MSYS2_PATH_TYPE environment variable: strict, inherit or minimal
+#         # Retrieve and extract base installation from upstream GitHub Releases
+#         # Update MSYS2 installation through pacman
+#         update: true
+#         # Install packages after installation through pacman
+#         install: mingw-w64-x86_64-gcc mingw-w64-x86_64-openssl mingw-w64-x86_64-mbedtls
 #     - uses: numworks/setup-msys2@v1
 #       with: 
 #     # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
