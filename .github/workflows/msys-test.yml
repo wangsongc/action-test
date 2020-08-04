@@ -23,7 +23,7 @@ jobs:
 #       run: vcpkg install zlib:x64-windows
     - name: version
       run: |
-        - echo $PATH
+        - echo $env:PATH
         - echo ${{job.windows2019.container.image}}
       
     
