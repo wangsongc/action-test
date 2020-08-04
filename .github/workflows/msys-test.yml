@@ -25,7 +25,7 @@ jobs:
       shell: powershell
       run: |
         echo $env:PATH
-        echo ${{job.windows2019.container.image}}
+        echo "${{jobs.windows2019.container.image}}"
       
     
     - name: Setup MSYS2
