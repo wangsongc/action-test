@@ -63,5 +63,5 @@ jobs:
           echo "build"
           ls build
           echo "vcpkg"
-          ls C:\vcpkg\installed\x64-windows\lib
+          ls ${{ runner.workspace }}\installed\x64-windows\lib
           
