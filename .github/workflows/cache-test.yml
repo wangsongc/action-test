@@ -35,12 +35,22 @@ jobs:
         uses: lukka/get-cmake@v3.17.3
       - run: echo $env:PATH   
 
-      - name: Install Depends
-        if: steps.cache-depends.outputs.cache-hit != 'true'
-        shell: powershell
-        run: |
-          vcpkg update
-          vcpkg install zlib:x64-windows
+      - name: Prepare vcpkg
+        uses: lukka/run-vcpkg@v2
+        id: runvcpkg
+        with:
+          vcpkgArguments: zlib:x64-windows
+          vcpkgDirectory: ${{ runner.workspace }}/vcpkg/
+          vcpkgGitCommitId: 8e76503a769e153dad8f4e7b2c95a152bb35edaa
+          vcpkgTriplet: x64-windows
+
+
+#       - name: Install Depends
+#         if: steps.cache-depends.outputs.cache-hit != 'true'
+#         shell: powershell
+#         run: |
+#           vcpkg update
+#           vcpkg install zlib:x64-windows
 
       - name: Build And Test
         shell: powershell
