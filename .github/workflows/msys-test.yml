@@ -14,13 +14,11 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        EVENT_BUILD_METHOD: [autotools, cmake]
+        EVENT_BUILD_METHOD: [cmake]
         EVENT_MATRIX: [""]    
 
     steps:      
     - uses: actions/checkout@v1
-#     - name: use vcpkg
-#       run: vcpkg install zlib:x64-windows
     - name: Cache
       uses: actions/cache@v2.1.0
       with:
@@ -42,6 +40,7 @@ jobs:
         echo  $env:ImageVersion
         echo "******3*******"
         echo  $env:imageVersion
+        ls C:\msys64
  
  
     
