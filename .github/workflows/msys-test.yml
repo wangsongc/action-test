@@ -42,10 +42,6 @@ jobs:
         echo "******3*******"
         echo  $env:imageVersion
         ls C:\msys64
-        
-    - name: msys2
-      shell: C:/msys64/mingw64.exe --noprofile --norc -e -o pipefail {0}
- 
  
     
 #     - name: Setup MSYS2
