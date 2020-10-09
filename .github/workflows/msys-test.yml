@@ -31,6 +31,7 @@ jobs:
       run: |
         echo $env:PATH
         echo "runner.os:${{runner.os}}"
+        echo "runner.version:${{runner.version}}"
         echo "github.run_id:${{github.run_id}}"
         echo "******0*******"
         echo  $ImageVersion
