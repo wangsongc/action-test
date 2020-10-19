@@ -20,9 +20,12 @@ jobs:
 #           ./vcpkg install libevent
     - name: inatall firefox-esr
       run: |
-        export FIREFOX_SOURCE_URL='https://download.mozilla.org/?product=firefox-esr-latest&lang=en-US&os=linux64'
-        wget --no-verbose $FIREFOX_SOURCE_URL -O - | tar -jx -C ${HOME}
-        export PATH=${HOME}/firefox:$PATH
+        if ${{ matrix.AA }} == "aa" {
+          export FIREFOX_SOURCE_URL='https://download.mozilla.org/?product=firefox-esr-latest&lang=en-US&os=linux64'
+          wget --no-verbose $FIREFOX_SOURCE_URL -O - | tar -jx -C ${HOME}
+          export PATH=${HOME}/firefox:$PATH
+        }
+        
         ls ${HOME}/firefox
         firefox --version
 #       if: matrix.AA == 'aa'
