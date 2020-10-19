@@ -27,6 +27,12 @@ jobs:
           export PATH=${HOME}/firefox:$PATH
         fi
         ls ${HOME}/firefox
-        firefox --version
+#        firefox --version
 #       if: matrix.AA == 'aa'
       if: "contains(matrix.AA, 'aa')"
+    - name: aaaaa
+      env:
+        PATH: ${HOME}/firefox:$PATH
+      run: |
+        firefox --version
+            
