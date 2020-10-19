@@ -6,6 +6,9 @@ on:
 jobs:
   ubuntu:  
     runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        AA: [aa,bb]
     steps:
     - uses: actions/checkout@v2
 #     - name: build
@@ -17,8 +20,9 @@ jobs:
 #           ./vcpkg install libevent
     - name: inatall firefox-esr
       run: |
-        sudo apt update
-        sudo apt install firefox-esr
+        pwd
+      if: ${{ matrix.AA }} == "aa" 
+  
 
         
 
