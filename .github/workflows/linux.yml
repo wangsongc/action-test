@@ -8,13 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: build
+#     - name: build
+#       run: |
+#           git clone https://github.com/Microsoft/vcpkg.git  
+#           cd vcpkg
+#           ./bootstrap-vcpkg.sh
+#           ./vcpkg integrate install
+#           ./vcpkg install libevent
+    - name: inatall firefox-esr
       run: |
-          git clone https://github.com/Microsoft/vcpkg.git  
-          cd vcpkg
-          ./bootstrap-vcpkg.sh
-          ./vcpkg integrate install
-          ./vcpkg install libevent
+        apt install firefox-esr
 
         
 
