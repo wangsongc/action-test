@@ -22,7 +22,7 @@ jobs:
       run: |
         pwd
 #       if: matrix.AA == 'aa'
-      if: "contains(matrix.name, 'aa')"
+      if: "contains(matrix.AA, 'aa')"
   
 
         
