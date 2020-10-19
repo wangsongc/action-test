@@ -33,7 +33,7 @@ jobs:
     - name: aaaaa
       if: "contains(matrix.AA, 'aa')"
       env:
-        PATH: "${HOME}/firefox:$PATH"
+        PATH: ${HOME}/firefox:$PATH
       run: |
-        firefox --version
+        echo $PATH
             
