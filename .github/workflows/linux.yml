@@ -21,7 +21,8 @@ jobs:
     - name: inatall firefox-esr
       run: |
         pwd
-      if: matrix.AA == 'aa'
+#       if: matrix.AA == 'aa'
+      if: "contains(matrix.name, 'aa')"
   
 
         
