@@ -17,7 +17,8 @@ jobs:
 #           ./vcpkg install libevent
     - name: inatall firefox-esr
       run: |
-        apt install firefox-esr
+        sudo apt update
+        sudo apt install firefox-esr
 
         
 
