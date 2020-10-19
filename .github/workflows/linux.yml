@@ -31,6 +31,7 @@ jobs:
 #       if: matrix.AA == 'aa'
       if: "contains(matrix.AA, 'aa')"
     - name: aaaaa
+      if: "contains(matrix.AA, 'aa')"
       env:
         PATH: ${HOME}/firefox:$PATH
       run: |
