@@ -33,7 +33,8 @@ jobs:
     - name: aaaaa
       if: "contains(matrix.AA, 'aa')"
       env:
-        PATH: PATH:aaaa
+        PATH: ${{ PATH }}:aaaa
       run: |
         echo $PATH
+        echo ${{ env.PATH }}
             
