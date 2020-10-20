@@ -25,6 +25,7 @@ jobs:
           export FIREFOX_SOURCE_URL='https://download.mozilla.org/?product=firefox-esr-latest&lang=en-US&os=linux64'
           wget --no-verbose $FIREFOX_SOURCE_URL -O - | tar -jx -C ${HOME}
           export PATH=${HOME}/firefox:$PATH
+          echo $PATH
         fi
         ls ${HOME}/firefox
 #        firefox --version
@@ -32,8 +33,6 @@ jobs:
       if: "contains(matrix.AA, 'aa')"
     - name: aaaaa
       if: "contains(matrix.AA, 'aa')"
-      env:
-        PATH: ${{ $PATH }}:aaaa
       run: |
         echo $PATH
         echo ${{ env.PATH }}
