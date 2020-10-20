@@ -34,8 +34,6 @@ jobs:
       if: "contains(matrix.AA, 'aa')"
       env:
         PATH: ${{ env.PATH }}:aaaa
-        AA: ${{ PATH }}:aaa
       run: |
         echo $PATH
-        echo $AA
             
