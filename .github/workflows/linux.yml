@@ -33,7 +33,9 @@ jobs:
     - name: aaaaa
       if: "contains(matrix.AA, 'aa')"
       env:
-        PATH: $HOME/firefox:$PATH
+        PATH: ${{ env.PATH }}:aaaa
+        AA: ${{ PATH }}:aaa
       run: |
         echo $PATH
+        echo $AA
             
