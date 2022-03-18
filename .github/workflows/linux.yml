@@ -11,6 +11,11 @@ jobs:
         AA: [aa,bb]
     steps:
     - uses: actions/checkout@v2
+    - name: test
+      run: |
+        echo ${GITHUB_ACTION_PATH}
+        echo ${HOME}
+        pwd
 #     - name: build
 #       run: |
 #           git clone https://github.com/Microsoft/vcpkg.git  
@@ -18,16 +23,16 @@ jobs:
 #           ./bootstrap-vcpkg.sh
 #           ./vcpkg integrate install
 #           ./vcpkg install libevent
-    - name: inatall firefox-esr
-      shell: bash
-      run: |
-        if [ "${{ matrix.AA }}" == "aa" ]; then
-          export FIREFOX_SOURCE_URL='https://download.mozilla.org/?product=firefox-esr-latest&lang=en-US&os=linux64'
-          wget --no-verbose $FIREFOX_SOURCE_URL -O - | tar -jx -C ${HOME}
-          export PATH=${HOME}/firefox:$PATH
-          echo $PATH
-        fi
-        ls ${HOME}/firefox
-#        firefox --version
-#       if: matrix.AA == 'aa'
-      if: "contains(matrix.AA, 'aa')"
+#     - name: inatall firefox-esr
+#       shell: bash
+#       run: |
+#         if [ "${{ matrix.AA }}" == "aa" ]; then
+#           export FIREFOX_SOURCE_URL='https://download.mozilla.org/?product=firefox-esr-latest&lang=en-US&os=linux64'
+#           wget --no-verbose $FIREFOX_SOURCE_URL -O - | tar -jx -C ${HOME}
+#           export PATH=${HOME}/firefox:$PATH
+#           echo $PATH
+#         fi
+#         ls ${HOME}/firefox
+# #        firefox --version
+# #       if: matrix.AA == 'aa'
+#       if: "contains(matrix.AA, 'aa')"
