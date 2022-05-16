@@ -1,7 +1,9 @@
 name: ubuntu test
 on:
-  push:
-    branches: [ master]
+  pull_request:
+    types: [opened, synchronize]
+  # push:
+  #   branches: [ master]
 
 jobs:
   ubuntu:  
