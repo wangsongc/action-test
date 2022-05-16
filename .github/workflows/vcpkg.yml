@@ -3,11 +3,11 @@ name: vcpkg test
 on:
   pull_request:
     types: [opened, synchronize]
-  push:
-    branches:
-    - master
-    tags:
-    - '*'
+  # push:
+  #   branches:
+  #   - master
+  #   tags:
+  #   - '*'
 
 jobs:
   windows2019:

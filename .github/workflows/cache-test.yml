@@ -3,7 +3,7 @@ name: windows
 
 on:
   pull_request:
-  push:
+  # push:
 jobs:
   vs:
     runs-on: ${{ matrix.os }}
